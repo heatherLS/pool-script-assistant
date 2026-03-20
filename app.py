@@ -2,6 +2,43 @@ import streamlit as st
 
 st.set_page_config(page_title="🏊 Pool Script Assistant", layout="wide")
 
+# -----------------------------------------------------------------------
+# 🔐 GOOGLE SSO AUTH
+# -----------------------------------------------------------------------
+ALLOWED_DOMAIN = "lawnstarter.com"
+
+if st.user.is_logged_in:
+    st.session_state['_auth_email'] = (st.user.email or "").strip()
+
+_is_authed = st.session_state.get('_auth_email', '')
+
+if not _is_authed:
+    st.markdown(
+        """
+        <div style='text-align:center; padding: 80px 20px;'>
+            <div style='font-size:48px;'>🏊</div>
+            <h1 style='font-size:36px; font-weight:900;'>Pool Script Assistant</h1>
+            <p style='font-size:18px; color:#aaa; margin-bottom:32px;'>
+                Sign in with your LawnStarter Google account to continue.
+            </p>
+        </div>
+        """,
+        unsafe_allow_html=True,
+    )
+    col1, col2, col3 = st.columns([2, 1, 2])
+    with col2:
+        st.login("google")
+    st.stop()
+
+user_email = st.session_state['_auth_email']
+
+if not user_email.lower().endswith(f"@{ALLOWED_DOMAIN}"):
+    st.error(f"❌ Access restricted to @{ALLOWED_DOMAIN} accounts. You're signed in as **{user_email}**.")
+    st.session_state.pop('_auth_email', None)
+    st.logout()
+    st.stop()
+
+# -----------------------------------------------------------------------
 # -----------------------------
 # RESPONSE LIBRARY
 # -----------------------------
@@ -319,23 +356,23 @@ with tab1:
         info_card(
             "1. Normal Call Greeting",
             "Hey this is Heather with Home Gnome — I can help you get your pool taken care of today.\n\n"
-            "What’s the pool looking like right now — clear, cloudy, or starting to turn green?"
+            "What’s the pool looking like right now, is it clear, cloudy, or starting to turn green?"
         )
 
         info_card(
             "2. SMS Follow-Up Call Greeting",
             "Hey this is Heather with Home Gnome — you were just texting us about pool service.\n\n"
             "I can get you a quote and walk you through everything real quick.\n\n"
-            "What’s the pool looking like right now — clear, cloudy, or starting to turn green?"
+            "What’s the pool looking like right now, is it clear, cloudy, or starting to turn green?"
         )
 
         show_active_marker("chk_service", active_step_key)
 
         info_card(
             "3. Position the Service",
-            "Got it — what we’ll do is start with a deep clean to get everything reset and balanced, "
+            "Got it! What we’ll do is start with a deep clean to get everything reset and balanced, "
             "then maintain it so it stays clean.\n\n"
-            "Our goal is simple — every visit, we leave your pool better than we found it.",
+            "Our goal is simple, every visit, we leave your pool better than we found it.",
             highlight=(active_step_key == "chk_service")
         )
 
