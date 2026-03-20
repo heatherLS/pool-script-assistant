@@ -403,8 +403,8 @@ with tab1:
         info_card(
             "6. Pricing Language That Converts",
             f"To get it cleaned up, it’s \\${deep_clean_display} for the first visit based on the condition.\n\n"
-            f"After that, most customers are around \\${monthly_display} per month for weekly service.\n\n"
-            f"It’s billed at \\${recurring_display} per visit, so you’re only paying for completed service.",
+            f"After that, it’s \\${recurring_display} per visit for weekly maintenance — so you’re only paying for completed service.\n\n"
+            f"📌 If they ask about monthly: \"Most customers are around \\${monthly_display} per month — it’s billed per visit so you only pay for what’s completed.\"",
             highlight=(active_step_key == "chk_price")
         )
 
