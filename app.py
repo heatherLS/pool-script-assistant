@@ -248,10 +248,11 @@ def show_active_marker(current_key: str, active_key: str) -> None:
 st.title("🏊 Pool Sales Script Assistant")
 st.caption("Built for live rep support, objection handling, and fast pool call guidance.")
 
-tab1, tab2, tab3 = st.tabs([
+tab1, tab2, tab3, tab4 = st.tabs([
     "📞 Full Call Flow",
     "⚡ Objection Assistant",
-    "🎭 Scenario Mode"
+    "🎭 Scenario Mode",
+    "❓ FAQs"
 ])
 
 # -----------------------------
@@ -1039,6 +1040,74 @@ with tab3:
 **Tab 2 = handle resistance**  
 **Tab 3 = hear how good calls should sound**
 
-The goal is not to sound scripted.  
+The goal is not to sound scripted.
 The goal is to sound simple, clear, and confident.
         """)
+
+# -----------------------------
+# TAB 4: FAQs
+# -----------------------------
+with tab4:
+    st.subheader("Frequently Asked Questions")
+    st.caption("Quick answers to common customer questions — use these verbatim or as a guide.")
+
+    faqs = [
+        (
+            "Q1: What does the deep clean actually include?",
+            "The deep clean includes shocking the pool, skimming, vacuuming, adding algaecide, cleaning the filter and skimmer basket, and adjusting all chemical levels. We take before and after photos so you can see the difference."
+        ),
+        (
+            "Q2: What does weekly maintenance include?",
+            "Every visit includes vacuuming, skimming, adjusting chemical levels, cleaning the filter as needed, and before and after photos. Our goal is simple — every visit, we leave your pool better than we found it."
+        ),
+        (
+            "Q3: Are chemicals included? What kind do you use?",
+            "Yes — all chemicals are included, we handle everything. That includes shock, algaecide, and whatever balancing agents your pool needs. You don't need to supply anything or know anything about it — that's on us."
+        ),
+        (
+            "Q4: Can I use my own chemicals?",
+            "You're welcome to add chemicals yourself between visits, but our pro handles everything during the service — you don't need to."
+        ),
+        (
+            "Q5: Do you offer biweekly or twice-a-week service?",
+            "Right now, we start everyone on a weekly schedule because it keeps the pool the most stable. That said, you have full flexibility — if you only want service every other week, you can simply skip any upcoming visit in the app with at least 48 hours' notice, no penalty.\n\nA lot of customers use that to effectively create a biweekly schedule while still having the option to add extra visits anytime if needed."
+        ),
+        (
+            "Q6: Can I just get a one-time deep clean?",
+            "The deep clean is always packaged with ongoing maintenance starting one week later — that's what keeps the pool from going right back. That said, you have full flexibility on frequency after that, including every-two-weeks service."
+        ),
+        (
+            "Q7: My pool is green — can you fix it?",
+            "Yes — that's exactly what the deep clean is designed for. It includes shocking, algaecide, vacuuming, and full chemical balancing to get it reset. After that, regular maintenance keeps it from going back."
+        ),
+        (
+            "Q8: How does billing work?",
+            "You're billed 3–4 days after the service is marked complete — so you never pay until the work is done."
+        ),
+        (
+            "Q9: Is there a contract? Can I cancel?",
+            "No contract. The only thing we ask is 48 hours' notice if you need to cancel or reschedule a visit."
+        ),
+        (
+            "Q10: Can I change my frequency later?",
+            "We keep service on a weekly schedule to keep your pool in great shape, but you're never locked in — if you need to space things out, you can skip any upcoming visit in the app with 48 hours' notice, no penalty."
+        ),
+        (
+            "Q11: Who is coming to my pool?",
+            "We connect you with a vetted local pool pro. Once they pick up the job, you'll see their info and can message them directly through the app."
+        ),
+        (
+            "Q12: Can you service a pool that has no water (empty pool)?",
+            "Yes, we can still help — even if the pool is empty and needs a full scrub/clean.\n\n"
+            "For quoting purposes, treat it as a green or heavily impacted pool depending on how dirty it is. This allows us to price the initial deep clean appropriately.\n\n"
+            "That said, it's important to set clear expectations with the customer:\n\n"
+            "• This is not a one-time cleaning service\n"
+            "• The service includes an initial deep clean followed by recurring maintenance visits\n"
+            "• Our current flow isn't specifically designed for empty pools, so walk the customer through what to expect to avoid confusion\n\n"
+            "If the customer is only looking for a one-time scrub with no ongoing service, we currently don't offer that as a standalone option."
+        ),
+    ]
+
+    for question, answer in faqs:
+        with st.expander(question):
+            st.success(answer)
