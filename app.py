@@ -314,7 +314,7 @@ with tab1:
 
     with q1:
         deep_clean_input = st.number_input(
-            "Deep Clean Price",
+            "One-Time Deep Clean Price",
             min_value=0.0,
             step=1.0,
             value=300.0,
@@ -323,7 +323,7 @@ with tab1:
 
     with q2:
         recurring_visit_input = st.number_input(
-            "Recurring Price Per Visit",
+            "Standard Maintenance Price",
             min_value=0.0,
             step=1.0,
             value=38.0,
@@ -332,7 +332,7 @@ with tab1:
 
     with q3:
         recurring_frequency = st.selectbox(
-            "Frequency",
+            "Frequency of Standard Maintenance",
             ["Weekly", "Twice a Week", "Every Two Weeks"],
             key="recurring_frequency"
         )
@@ -415,13 +415,22 @@ with tab1:
 
         info_card(
             "7. Explain What’s Included",
-            "Each visit includes:\n\n"
-            "• skimming\n"
+            "**Standard Maintenance** — every visit includes:\n\n"
+            "• tile brushing & skimming\n"
             "• vacuuming\n"
-            "• brushing\n"
-            "• chemical balancing\n"
-            "• cleaning the filter as needed\n\n"
-            "And all chemicals are included.",
+            "• chemical testing\n"
+            "• filter cleaning to keep your pool crystal clear year-round\n\n"
+            "---\n\n"
+            "**One-Time Deep Clean** — your first visit includes:\n\n"
+            "• shock the pool\n"
+            "• vacuum the pool floor\n"
+            "• brush the walls and tile\n"
+            "• skim surface debris\n"
+            "• clean the skimmer and pump baskets\n"
+            "• inspect and clean the filter\n"
+            "• balance your pool’s water chemistry\n"
+            "• apply algae treatment if needed\n\n"
+            "We’re committed to leaving your pool in pristine condition, so you can spend more time enjoying it and less time maintaining it.",
             highlight=(active_step_key == "chk_serviceincl")
         )
         st.checkbox("✔️ What's Included", key="chk_serviceincl")
