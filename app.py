@@ -1126,6 +1126,88 @@ with tab4:
             "Our fastest turnaround is a 48-hour window from when you book — so we can typically get someone out within two days.\n\n"
             "Once you're booked, we'll confirm your scheduled date and you'll be able to see your pro's info through the app."
         ),
+        (
+            "Q20: What does it mean to shock a pool?",
+            "Shocking just means adding a strong dose of chlorine to quickly kill algae and bacteria — it's one of the first steps in turning a green pool back to clear.\n\n"
+            "We'll handle all of that during the deep clean so you don't have to worry about it."
+        ),
+        (
+            "Q21: How many deep cleans per year?",
+            "Most customers only need a deep clean when the pool gets out of balance or turns green.\n\n"
+            "After that, weekly maintenance keeps it in good shape so you don't have to go through that again.\n\n"
+            "We'll get you set up so this is the last time you have to deal with it."
+        ),
+        (
+            "Q22: Is there a contract?",
+            "We don't have any contracts — you only pay for the service you receive.\n\n"
+            "Most customers stick with us because the pool stays clean and it's one less thing they have to think about.\n\n"
+            "We'll get you started with the deep clean and weekly service so you can see the difference right away."
+        ),
+        (
+            "Q23: Will my price change after I enter my pool details?",
+            "No — the price we quote you is the price you'll pay.\n\n"
+            "After booking, you'll just log into the app and add a few pool details so your pro shows up fully prepared.\n\n"
+            "It doesn't change your price — it just makes sure everything goes smoothly from the start."
+        ),
+        (
+            "Q24: Are there any extra charges — like a deep clean fee or long grass fee?",
+            "No — there are no surprise charges.\n\n"
+            "The deep clean price covers getting your pool through that initial reset.\n\n"
+            "After booking, you'll just add a few details in the app so your pro has everything they need. That way, everything is handled upfront and there are no unexpected costs."
+        ),
+        (
+            "Q25: Are your pros licensed, bonded, and insured?",
+            "Yes — they're vetted and covered, so if anything were to happen, you're protected.\n\n"
+            "We make sure you're matched with someone qualified so you can feel confident from day one."
+        ),
+        (
+            "Q26: If it takes multiple visits, does the price change?",
+            "No — the deep clean price covers getting your pool through that initial reset.\n\n"
+            "Some pools take a few visits to fully clear, and we stay on it until it's right without changing that price.\n\n"
+            "That's exactly why we pair it with weekly service so it gets fully cleared and stays that way."
+        ),
+        (
+            "Q27: What if the deep clean doesn't fix it?",
+            "Green pools don't turn overnight, but we handle it step-by-step until it's right.\n\n"
+            "The deep clean starts the reset, and if needed, we continue treatments over the first week until it fully clears.\n\n"
+            "Weekly maintenance is what keeps it on track so it doesn't go back to green.\n\n"
+            "We'll get you started so we can begin turning it around right away."
+        ),
+        (
+            "Q28: How long does it take for the pool to turn clear?",
+            "Most pools start improving within the first few visits, and depending on the condition, it can take about a week to fully clear.\n\n"
+            "Green pools don't turn overnight, but we stay on it until it's where it should be.\n\n"
+            "The sooner we start, the sooner you'll see it clear up."
+        ),
+        (
+            "Q29: Will it be clear after the first visit?",
+            "You'll usually see a big improvement right away.\n\n"
+            "If it's heavily green, it can take a few treatments over that first week to fully clear.\n\n"
+            "We stay on it until it gets there, which is why we set it up with weekly service."
+        ),
+        (
+            "Q30: Why do I need weekly maintenance after the deep clean?",
+            "The deep clean gets things started, but weekly service is what finishes the job and keeps it that way.\n\n"
+            "Without it, pools can slip right back to green.\n\n"
+            "We'll get you set up so you don't have to deal with this again."
+        ),
+        (
+            "Q31: What if it turns green again?",
+            "That's exactly what we're here to prevent.\n\n"
+            "With weekly maintenance, we keep everything balanced and catch issues early before they turn into a bigger problem.\n\n"
+            "We'll stay on top of it so it stays clear and ready to use."
+        ),
+        (
+            "Q32: Can I just do the deep clean and then cancel?",
+            "I totally get wanting to just knock it out in one visit.\n\n"
+            "The way green pools work though — it usually takes a few treatments over that first week to fully clear, and without ongoing care it can come right back.\n\n"
+            "So we set it up with weekly service to make sure it actually gets clear and stays that way.\n\n"
+            "Let's get you started so we can begin turning it around right away.\n\n"
+            "---\n\n"
+            "**If they push back:**\n\n"
+            "You do have flexibility, but we want to make sure you're not paying for a reset and ending up right back where you started.\n\n"
+            "Starting with weekly service is what ensures you actually get the full result."
+        ),
     ]
 
     for faq in faqs:
