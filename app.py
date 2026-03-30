@@ -1111,9 +1111,10 @@ with tab4:
         ),
         (
             "Q17: What if the deep clean doesn't fully fix my pool?",
-            "The deep clean is designed to reset the pool — shock, algaecide, vacuuming, full chemical balance. For most pools, that gets it back to a clean baseline.\n\n"
-            "If the pool is in really rough shape, it may take more than one treatment to get fully clear — that's actually one reason we pair it with weekly maintenance, so we can stay on top of it until it's stable.\n\n"
-            "If you're not happy with the result, reach out to our support team through the app and we'll make it right."
+            "The deep clean is designed to start the reset — we'll treat the water, remove debris, and begin balancing everything.\n\n"
+            "If the pool is really green or hasn't been maintained in a while, it's completely normal for that process to take a few visits over the first week to get it fully cleared up.\n\n"
+            "That's exactly why we pair it with weekly maintenance — we stay on it, continue treatments, and make sure it gets all the way to clear and stays that way.\n\n"
+            "And if anything ever feels off along the way, you can reach out through the app and we'll take care of it."
         ),
         (
             "Q18: Can I get a free assessment before committing?",
