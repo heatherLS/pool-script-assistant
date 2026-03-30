@@ -45,31 +45,34 @@ if not user_email.lower().endswith(f"@{ALLOWED_DOMAIN}"):
 RESPONSES = {
     "Green Pool / Urgent": {
         "response": (
-            "Yeah — that’s exactly when most people call us. "
-            "We’ll start with a deep clean to get everything reset and balanced, "
-            "then maintain it so it stays clean and you don’t have to deal with it again."
+            "Yeah — that’s exactly when most people call us.\n\n"
+            "We’ll start with the deep clean to get everything moving, then stay on it so it clears up and doesn’t come back.\n\n"
+            "The sooner we start, the faster you’ll see it turn around."
         ),
         "why": "Matches urgency and clearly explains the reset → maintain model."
     },
     "Only Wants One Clean": {
         "response": (
-            "Totally get that — we’ll start with the deep clean to get everything cleaned up, "
-            "then do a few maintenance visits to keep it from going right back. "
-            "After that, you’re completely flexible."
+            "Totally get wanting to just knock it out in one go.\n\n"
+            "What most people find is it takes a few treatments over that first week to fully clear, and without follow-up it can go right back.\n\n"
+            "So we start with the deep clean and keep it on track with weekly service so you actually get the full result.\n\n"
+            "Let’s get you set up so we can start turning it around."
         ),
         "why": "Avoids saying no directly while reframing the follow-up visits as part of the solution."
     },
     "Price Too High": {
         "response": (
-            "Yeah — totally fair. What most customers like is that everything’s included — "
-            "cleaning, chemicals, balancing, and filter care — so there are no surprise costs."
+            "Totally fair — that’s usually the first reaction.\n\n"
+            "Most customers end up around $[monthly] per month, and that includes everything — cleaning, chemicals, balancing, filter care — so there aren’t extra costs or surprises.\n\n"
+            "Once it’s set up, it’s pretty hands-off."
         ),
         "why": "Acknowledges the objection and shifts the focus to value."
     },
     "Just Shopping Around": {
         "response": (
-            "Totally makes sense — most people we talk to are comparing options. What we focus on is making it simple and consistent" 
-             "— everything’s included, and you can see exactly what’s being done after each visit. "
+            "Totally makes sense — most people we talk to are comparing options.\n\n"
+            "What they usually end up looking for is something consistent and easy — where everything’s included and they don’t have to manage it.\n\n"
+            "That’s really where we focus."
         ),
         "why": "Keeps the rep calm and confident without sounding pushy."
     },
@@ -94,23 +97,25 @@ RESPONSES = {
     },
     "I Don’t Want Ongoing Service": {
         "response": (
-            "Totally get that — we do a few follow-up maintenance visits up front to keep the pool stable "
-            "after the clean. After that, you’re completely flexible."
+            "Totally get that — no one wants more than they need.\n\n"
+            "The reason we include ongoing service is because the first few visits are what actually stabilize the pool after the clean.\n\n"
+            "Without that, it can slip right back.\n\n"
+            "We’ll start there so you get the full result, and you still have flexibility from there."
         ),
         "why": "Keeps the explanation honest without sounding rigid or contractual."
     },
     "Can I Skip or Pause?": {
         "response": (
-            "Absolutely — you’re never locked into the schedule. "
-            "You can skip or pause anytime as long as you let us know at least 48 hours ahead."
+            "Absolutely — you’re not locked in.\n\n"
+            "You can skip or pause anytime with 48 hours’ notice, so you stay in full control of the schedule."
         ),
         "why": "Gives the customer control and reduces fear of overpaying."
     },
     "Trust / Wants to Try Us First": {
         "response": (
-            "Totally fair — a lot of people feel that way at first. "
-            "That’s why we make it simple and consistent, and if you’re ever not happy for any reason, "
-            "we handle switching you to a new pro so you don’t have to start over."
+            "Totally fair — a lot of people feel that way at first.\n\n"
+            "That’s actually why people stick with us — if anything’s ever off, we handle switching pros for you so you don’t have to start over.\n\n"
+            "You’re not stuck trying to figure it out on your own."
         ),
         "why": "Acknowledges trust hesitation and uses your strongest service advantage to reduce risk."
     },
@@ -130,15 +135,15 @@ RESPONSES = {
     },
     "Wants to Think About It": {
         "response": (
-            "Totally — what part are you still deciding on? "
-            "Is it the pricing, the schedule, or just wanting to compare options?"
+            "Totally — what part are you still deciding on?\n\n"
+            "Is it the pricing, the timing, or just wanting to compare a few options?"
         ),
         "why": "Helps uncover the real objection instead of accepting a soft no."
     },
     "Why Do I Need Weekly?": {
         "response": (
-            "The deep clean gets it fixed — the next few visits are what keep it from going right back. "
-            "That’s what keeps the pool stable."
+            "The deep clean gets it moving — the next few visits are what actually clear it fully and keep it from going right back.\n\n"
+            "That’s why we set it up weekly — so it gets handled properly and stays that way."
         ),
         "why": "Explains the logic behind recurring in a simple, confident way."
     },
@@ -652,8 +657,8 @@ with tab2:
     if selected == "Needs Monthly Price":
         st.subheader("🎯 Suggested Response")
         st.success(
-            f"Most customers are around {monthly} per month for weekly service.\n\n"
-            f"It’s billed at {visit} per visit, but that’s typically what it comes out to."
+            f"Most customers end up right around {monthly} per month for weekly service — it’s billed at {visit} per visit, but that’s typically what it comes out to.\n\n"
+            f"That includes everything, so you don’t have to worry about extra costs popping up."
         )
 
         st.subheader("💡 Why This Works")
@@ -662,8 +667,8 @@ with tab2:
     elif selected == "Flat Monthly Request":
         st.subheader("🎯 Suggested Response")
         st.success(
-            f"Totally get that — ours is billed per visit so you’re only paying for completed service, "
-            f"but most customers think of it as about {monthly} per month."
+            f"Totally get that — ours is billed per visit so you’re only paying for completed service.\n\n"
+            f"Most customers still think of it as about {monthly} per month, just with more flexibility built in."
         )
 
         st.subheader("💡 Why This Works")
@@ -672,8 +677,9 @@ with tab2:
     elif selected == "Comparing Lower Price":
         st.subheader("🎯 Suggested Response")
         st.success(
-            f"Got it — most customers we work with are around {monthly} per month because everything’s included — "
-            f"cleaning, chemicals, and balancing — so there aren’t extra costs popping up."
+            f"Got it — a lot of customers compare pricing at first.\n\n"
+            f"Most end up around {monthly} per month with us because everything’s included — cleaning, chemicals, balancing — so you don’t get hit with extra charges later.\n\n"
+            f"It usually ends up being more predictable and less to manage."
         )
 
         st.subheader("💡 Why This Works")
@@ -685,9 +691,9 @@ with tab2:
     elif selected == "Price Too High":
         st.subheader("🎯 Suggested Response")
         st.success(
-            f"Totally fair — most customers we work with are around {monthly} per month for weekly service.\n\n"
-            f"It’s billed at {visit} per visit, and that includes cleaning, chemicals, balancing, and filter care — "
-            f"so there aren’t extra costs."
+            f"Totally fair — that’s usually the first reaction.\n\n"
+            f"Most customers end up around {monthly} per month, and that includes everything — cleaning, chemicals, balancing, filter care — so there aren’t extra costs or surprises.\n\n"
+            f"Once it’s set up, it’s pretty hands-off."
         )
 
         st.subheader("💡 Why This Works")
@@ -696,9 +702,10 @@ with tab2:
     elif selected == "Only Wants One Clean":
         st.subheader("🎯 Suggested Response")
         st.success(
-            f"Totally get that — we’ll start with the deep clean at {deep} to get everything reset.\n\n"
-            f"After that, most customers are around {monthly} per month for weekly service, "
-            f"just to keep it from going right back."
+            f"Totally get wanting to just knock it out in one go.\n\n"
+            f"What most people find is it takes a few treatments over that first week to fully clear, and without follow-up it can go right back.\n\n"
+            f"So we start with the deep clean and keep it on track with weekly service so you actually get the full result.\n\n"
+            f"Let’s get you set up so we can start turning it around."
         )
 
         st.subheader("💡 Why This Works")
@@ -719,8 +726,10 @@ with tab2:
     elif selected == "I Don’t Want Ongoing Service":
         st.subheader("🎯 Suggested Response")
         st.success(
-            f"Totally get that — we do a few follow-up maintenance visits up front to keep the pool stable after the clean.\n\n"
-            f"Most customers are around {monthly} per month for that ongoing service."
+            "Totally get that — no one wants more than they need.\n\n"
+            "The reason we include ongoing service is because the first few visits are what actually stabilize the pool after the clean.\n\n"
+            "Without that, it can slip right back.\n\n"
+            "We’ll start there so you get the full result, and you still have flexibility from there."
         )
 
         st.subheader("💡 Why This Works")
@@ -729,8 +738,8 @@ with tab2:
     elif selected == "Why Do I Need Weekly?":
         st.subheader("🎯 Suggested Response")
         st.success(
-            f"The deep clean gets it fixed — the next few visits are what keep it from going right back.\n\n"
-            f"Most customers are around {monthly} per month for weekly service, billed at {visit} per visit."
+            "The deep clean gets it moving — the next few visits are what actually clear it fully and keep it from going right back.\n\n"
+            "That’s why we set it up weekly — so it gets handled properly and stays that way."
         )
 
         st.subheader("💡 Why This Works")
@@ -739,7 +748,8 @@ with tab2:
     elif selected == "Can I Skip or Pause?":
         st.subheader("🎯 Suggested Response")
         st.success(
-            "Absolutely — you’re not locked in. You can skip or pause anytime as long as you let us know at least 48 hours ahead."
+            "Absolutely — you’re not locked in.\n\n"
+            "You can skip or pause anytime with 48 hours’ notice, so you stay in full control of the schedule."
         )
 
         st.subheader("💡 Why This Works")
@@ -748,8 +758,9 @@ with tab2:
     elif selected == "Trust / Wants to Try Us First":
         st.subheader("🎯 Suggested Response")
         st.success(
-            "Totally fair — a lot of people feel that way at first. "
-            "If you’re ever not happy, we handle switching you to a new pro so you don’t have to start over."
+            "Totally fair — a lot of people feel that way at first.\n\n"
+            "That’s actually why people stick with us — if anything’s ever off, we handle switching pros for you so you don’t have to start over.\n\n"
+            "You’re not stuck trying to figure it out on your own."
         )
 
         st.subheader("💡 Why This Works")
