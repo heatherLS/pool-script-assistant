@@ -1088,15 +1088,15 @@ with tab4:
         ),
         (
             "Q13: Can you fix or replace my pool pump / motor?",
-            "We're a pool cleaning and maintenance service — we don't do equipment repair or replacement.\n\n"
-            "What we can do is get the pool cleaned up and chemically balanced. If your pro notices something concerning with the equipment during the visit, they can flag it for you.\n\n"
-            "For pump or motor repairs, you'd want to reach out to a pool equipment specialist or a local pool repair company."
+            "We focus on cleaning and maintaining the pool itself, so we don't handle equipment repairs like pumps or motors.\n\n"
+            "What we can do is get the pool cleaned up, balanced, and back in great shape right away — and if your pro notices anything off with the equipment during the visit, they'll flag it for you so you know exactly what to address.\n\n"
+            "A lot of customers will get the water handled first while coordinating repairs separately — that way everything's ready to go as soon as the equipment is sorted."
         ),
         (
             "Q14: Can you install pool rails / steps / hardware I bought on Amazon?",
-            "That's not something we're able to help with — we're a pool cleaning service, not a handyman or installation service.\n\n"
-            "For something like that, a local handyman would be your best bet — it's usually a quick job for someone with the right tools.\n\n"
-            "What we can help with is keeping the pool itself clean and maintained once everything's set up."
+            "We don't handle installations like rails or steps — we focus on keeping the pool clean, clear, and properly maintained.\n\n"
+            "Most customers will have a handyman take care of the install, and then we handle everything on the pool side so it stays looking great and ready to use.\n\n"
+            "Once everything's set up, that's where we really take it off your plate."
         ),
         (
             "Q15: Does the weekly maintenance include opening and cleaning the filter housing / pump baskets?",
