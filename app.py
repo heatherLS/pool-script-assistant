@@ -1089,6 +1089,45 @@ with tab4:
             "• Our current flow isn't specifically designed for empty pools, so walk the customer through what to expect to avoid confusion\n\n"
             "If the customer is only looking for a one-time scrub with no ongoing service, we currently don't offer that as a standalone option."
         ),
+        (
+            "Q13: Can you fix or replace my pool pump / motor?",
+            "We're a pool cleaning and maintenance service — we don't do equipment repair or replacement.\n\n"
+            "What we can do is get the pool cleaned up and chemically balanced. If your pro notices something concerning with the equipment during the visit, they can flag it for you.\n\n"
+            "For pump or motor repairs, you'd want to reach out to a pool equipment specialist or a local pool repair company."
+        ),
+        (
+            "Q14: Can you install pool rails / steps / hardware I bought on Amazon?",
+            "That's not something we're able to help with — we're a pool cleaning service, not a handyman or installation service.\n\n"
+            "For something like that, a local handyman would be your best bet — it's usually a quick job for someone with the right tools.\n\n"
+            "What we can help with is keeping the pool itself clean and maintained once everything's set up."
+        ),
+        (
+            "Q15: Does the weekly maintenance include opening and cleaning the filter housing / pump baskets?",
+            "Every visit includes filter cleaning as needed — our pro will check and clean the filter as part of the service.\n\n"
+            "If you're asking about full filter housing disassembly or deep internal pump work, that goes beyond our standard maintenance scope. The weekly service covers the cleaning tasks: skimming, vacuuming, chemical testing, and filter cleaning.\n\n"
+            "If the pro spots something that needs more attention, they'll let you know."
+        ),
+        (
+            "Q16: Can I pay by check?",
+            "We require a card on file to book — we accept all major credit and debit cards.\n\n"
+            "The good news is we don't charge you until 3–4 days after the service is completed, so you're never paying upfront."
+        ),
+        (
+            "Q17: What if the deep clean doesn't fully fix my pool?",
+            "The deep clean is designed to reset the pool — shock, algaecide, vacuuming, full chemical balance. For most pools, that gets it back to a clean baseline.\n\n"
+            "If the pool is in really rough shape, it may take more than one treatment to get fully clear — that's actually one reason we pair it with weekly maintenance, so we can stay on top of it until it's stable.\n\n"
+            "If you're not happy with the result, reach out to our support team through the app and we'll make it right."
+        ),
+        (
+            "Q18: Can I get a free assessment before committing?",
+            "We don't do a pre-service assessment visit — the deep clean is how we get started, and it includes a full evaluation of the pool's condition when the pro arrives.\n\n"
+            "You're not charged until 3–4 days after the service is complete, so there's no upfront risk. If anything, the before and after photos give you a clear picture of what was done."
+        ),
+        (
+            "Q19: Can you do same-day or next-day service?",
+            "Our fastest turnaround is a 48-hour window from when you book — so we can typically get someone out within two days.\n\n"
+            "Once you're booked, we'll confirm your scheduled date and you'll be able to see your pro's info through the app."
+        ),
     ]
 
     for question, answer in faqs:
