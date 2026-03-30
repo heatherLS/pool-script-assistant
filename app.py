@@ -253,11 +253,12 @@ def show_active_marker(current_key: str, active_key: str) -> None:
 st.title("🏊 Pool Sales Script Assistant")
 st.caption("Built for live rep support, objection handling, and fast pool call guidance.")
 
-tab1, tab2, tab3, tab4 = st.tabs([
+tab1, tab2, tab3, tab4, tab5 = st.tabs([
     "📞 Full Call Flow",
     "⚡ Objection Assistant",
     "🎭 Scenario Mode",
-    "❓ FAQs"
+    "❓ FAQs",
+    "📖 Pool Terms"
 ])
 
 # -----------------------------
@@ -1228,3 +1229,98 @@ with tab4:
             st.success(answer)
             if rep_note:
                 st.warning(f"🔒 **Rep note (don't read aloud):** {rep_note}")
+
+# -----------------------------
+# TAB 5: POOL TERMS
+# -----------------------------
+with tab5:
+    st.subheader("Pool Terms Glossary")
+    st.caption("Plain-language definitions and analogies to help reps explain pool concepts with confidence.")
+
+    terms = [
+        (
+            "Chlorine",
+            "Kills bacteria and algae in the water.",
+            "It's like soap for your pool — it keeps everything clean and safe."
+        ),
+        (
+            "Shock",
+            "A strong dose of chlorine used to quickly clean up a problem.",
+            "It's like a deep clean or power wash — used when things get out of control."
+        ),
+        (
+            "Stabilizer (Cyanuric Acid / CYA)",
+            "Protects chlorine from being burned off by the sun.",
+            "It's like sunscreen for your pool — without it, chlorine disappears fast in the sun."
+        ),
+        (
+            "pH Balance",
+            "Measures how acidic or basic the water is.",
+            "It's like keeping your skin balanced — too high or too low and things get irritated."
+        ),
+        (
+            "Total Alkalinity",
+            "Acts as a buffer that keeps pH from swinging up and down.",
+            "It's like the shock absorbers on a car — it keeps pH from bouncing all over the place when you add chemicals."
+        ),
+        (
+            "Calcium Hardness",
+            "Measures how much calcium is dissolved in the water.",
+            "It's like mineral content in drinking water — too low and the water starts eating away at surfaces; too high and it leaves scale buildup."
+        ),
+        (
+            "Algaecide",
+            "Prevents or kills algae growth.",
+            "It's like weed killer for your pool."
+        ),
+        (
+            "Clarifier",
+            "Causes tiny particles that are too small for the filter to catch to clump together so the filter can remove them.",
+            "It's like a magnet for cloudiness — it groups the tiny invisible particles together so the filter can actually grab them. Used when the water is hazy blue but not fully clearing."
+        ),
+        (
+            "Flocculant (Floc)",
+            "A heavy-duty version of clarifier — causes particles to sink to the bottom so they can be vacuumed out.",
+            "It's like dropping a net through the water — everything clumps and falls to the bottom so you can vacuum it out. Used for really cloudy or green pools."
+        ),
+        (
+            "Metal Sequestrant",
+            "Binds metals in the water so they don't stain the pool or discolor the water.",
+            "It's like a rust remover — it grabs metals like iron and copper so they can't leave stains on the walls or turn the water a weird color."
+        ),
+        (
+            "Filter",
+            "Removes dirt, debris, and particles from the water.",
+            "It's like your pool's vacuum or air filter — constantly cleaning in the background."
+        ),
+        (
+            "Saltwater Pool",
+            "Uses salt to generate chlorine automatically.",
+            "It's like a self-cleaning system — it makes its own chlorine instead of adding it manually."
+        ),
+        (
+            "Chlorine Pool",
+            "Traditional pool where chlorine is added manually.",
+            "Like adding detergent to a washing machine — it needs to be maintained regularly."
+        ),
+        (
+            "Brushing",
+            "Scrubbing pool walls and surfaces.",
+            "Like brushing your teeth — prevents buildup before it becomes a problem."
+        ),
+        (
+            "Vacuuming",
+            "Removing debris from the bottom of the pool.",
+            "Like vacuuming your floors — keeps everything looking clean."
+        ),
+        (
+            "Balancing Chemicals",
+            "Keeping all water chemistry levels in the correct range.",
+            "Like maintaining a healthy diet — everything needs to be in the right balance."
+        ),
+    ]
+
+    for term, definition, analogy in terms:
+        with st.expander(term):
+            st.markdown(f"**What it is:** {definition}")
+            st.info(f"💡 **Analogy:** {analogy}")
