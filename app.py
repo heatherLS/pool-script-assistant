@@ -277,7 +277,6 @@ with tab1:
         ("chk_serviceincl", "What's Included"),
         ("chk_close", "Attempted Close"),
         ("chk_email", "Email"),
-        ("chk_property", "Property Details Confirmed"),
         ("chk_recap", "Recap"),
         ("chk_policy", "Policy"),
         ("chk_payment", "Payment"),
@@ -463,21 +462,6 @@ with tab1:
     
     with col2:
 
-        show_active_marker("chk_property", active_step_key)
-
-        info_card(
-            "10. Property Details",
-            "Are there any pets?\n"
-            "If so, during the time of service, pets should be secured.\n\n"
-            "Is the property in a gated community?\n"
-            "If so, is there a gate code or special instructions for accessing the gate?",
-            highlight=(active_step_key == "chk_property")
-        )
-
-        st.checkbox("✔️ Property Details Confirmed", key="chk_property")
-        show_step_hint("chk_property", active_step_key, active_step_label)
-
-
         show_active_marker("chk_recap", active_step_key)
 
         info_card(
@@ -530,7 +514,9 @@ with tab1:
             "and letting you know a Pro picked the job up. At that point, you can message them directly.\n\n"
             "You’ll also receive a text with a link to our free app and a temporary password — your email will be your username.\n\n"
             "Through the app and web login, you can request additional services, make changes to your account, "
-            "and it’s the fastest way to contact our Support Team.",
+            "and it’s the fastest way to contact our Support Team.\n\n"
+            "📋 Once you’re logged in, there are a few important questions about your pool we’d love for you to answer — "
+            "things like pool size and filtration details — so your Pro is fully prepared before they arrive.",
             highlight=(active_step_key == "chk_expectation")
         )
 
@@ -608,9 +594,6 @@ with tab1:
 
     if not st.session_state.get("chk_email"):
         missing_steps.append("Email")
-
-    if not st.session_state.get("chk_property"):
-        missing_steps.append("Property Details Confirmed")
 
     if not st.session_state.get("chk_recap"):
         missing_steps.append("Recap")
