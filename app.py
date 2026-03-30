@@ -447,6 +447,8 @@ with tab1:
         st.checkbox("✔️ Attempted Close", key="chk_close")
         show_step_hint("chk_close", active_step_key, active_step_label)
 
+    with col2:
+
         show_active_marker("chk_email", active_step_key)
 
         info_card(
@@ -459,8 +461,6 @@ with tab1:
 
         st.checkbox("✔️ Email Verified", key="chk_email")
         show_step_hint("chk_email", active_step_key, active_step_label)
-    
-    with col2:
 
         show_active_marker("chk_recap", active_step_key)
 
