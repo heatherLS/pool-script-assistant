@@ -1081,13 +1081,10 @@ with tab4:
         ),
         (
             "Q12: Can you service a pool that has no water (empty pool)?",
-            "Yes, we can still help — even if the pool is empty and needs a full scrub/clean.\n\n"
-            "For quoting purposes, treat it as a green or heavily impacted pool depending on how dirty it is. This allows us to price the initial deep clean appropriately.\n\n"
-            "That said, it's important to set clear expectations with the customer:\n\n"
-            "• This is not a one-time cleaning service\n"
-            "• The service includes an initial deep clean followed by recurring maintenance visits\n"
-            "• Our current flow isn't specifically designed for empty pools, so walk the customer through what to expect to avoid confusion\n\n"
-            "If the customer is only looking for a one-time scrub with no ongoing service, we currently don't offer that as a standalone option."
+            "Yes, we can still help — even if the pool is empty and needs a full scrub and clean.\n\n"
+            "Just keep in mind this isn't a one-time service — we'd start with a deep clean and then set you up on regular maintenance to keep it in good shape going forward.\n\n"
+            "If you're only looking for a one-time scrub with no ongoing service, that's not something we currently offer as a standalone.",
+            "For quoting purposes, treat an empty pool like a green or heavily impacted pool depending on how dirty it is — this lets you price the deep clean appropriately. Our current flow isn't specifically designed for empty pools, so make sure to walk the customer through what to expect to avoid confusion on billing or scheduling."
         ),
         (
             "Q13: Can you fix or replace my pool pump / motor?",
@@ -1130,6 +1127,10 @@ with tab4:
         ),
     ]
 
-    for question, answer in faqs:
+    for faq in faqs:
+        question, answer = faq[0], faq[1]
+        rep_note = faq[2] if len(faq) > 2 else None
         with st.expander(question):
             st.success(answer)
+            if rep_note:
+                st.warning(f"🔒 **Rep note (don't read aloud):** {rep_note}")
