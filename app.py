@@ -1220,6 +1220,28 @@ with tab4:
             "You do have flexibility, but we want to make sure you're not paying for a reset and ending up right back where you started.\n\n"
             "Starting with weekly service is what ensures you actually get the full result."
         ),
+        (
+            "Q33: Do you offer acid washes?",
+            "We don't perform acid washes, but once that's completed, we can take over weekly maintenance to keep your pool clean, balanced, and looking great moving forward."
+        ),
+        (
+            "Q34: Will the pro remove my pool cover?",
+            "Yes, the pro will remove your pool cover as part of getting started."
+        ),
+        (
+            "Q35: I need my pool opened — can you do that?",
+            "Absolutely. We start with a deep clean to get everything reset, then move into weekly maintenance to keep it in great shape all season."
+        ),
+        (
+            "Q36: I don't know what condition my pool is in.",
+            "No problem at all — that's very common, especially if the cover is still on. We'll start with a full deep clean to get everything cleared up, then transition into weekly maintenance to keep it looking its best.",
+            "Select **Green** as the pool condition when booking — this routes the job as a deep clean."
+        ),
+        (
+            "Q37: How do I add pool to an existing customer account?",
+            "",
+            "Use this link to add pool service to an existing account: https://dki.io/10c0daae"
+        ),
     ]
 
     for faq in faqs:
