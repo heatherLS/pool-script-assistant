@@ -804,14 +804,44 @@ with tab2:
         st.info("Acknowledges preference while reinforcing your model as fair and flexible.")
 
     elif selected == "Comparing Lower Price":
-        st.subheader("🎯 Suggested Response")
+        st.subheader("🔑 Ask This First")
+        st.warning('"What made you start looking around?"')
+        st.caption(
+            "They called us while already with someone else. Something prompted it. "
+            "Find that before you say anything else — that's your real opening."
+        )
+
+        st.subheader("🎯 If They Have a Complaint About Current Service")
         st.success(
-            f"Got it — most customers we work with are around {monthly} per month because everything's included — "
-            f"cleaning, chemicals, and balancing — so there aren't extra costs popping up."
+            "That's exactly why people switch to us. [Mirror their specific complaint.]\n\n"
+            "We handle that — and you only pay when a visit is actually completed, "
+            "so if anything falls through, it doesn't cost you."
+        )
+
+        st.subheader("🎯 If They're Just Comparing and Have No Complaints")
+        st.success(
+            "Honestly, if they're showing up consistently and you're happy with the work, "
+            "that's a solid deal. Where we're different is you get before and after photos "
+            "every visit and you only pay for completed service — but if things are working, "
+            "I don't want to oversell you. Is there anything about the current service that's been bothering you?"
+        )
+
+        st.subheader("🎯 If They Push Back on Price Directly")
+        st.success(
+            "That's fair — their monthly rate is lower. The difference is how we handle accountability. "
+            "With us, you only get charged when a visit is actually completed — if your pro doesn't show, "
+            "you don't pay. With a monthly subscription, you're paying whether they come or not.\n\n"
+            "And every visit comes with before and after photos so you can see exactly what was done. "
+            "If you're ever not happy for any reason, we handle it — that's our Quality Service Promise."
         )
 
         st.subheader("💡 Why This Works")
-        st.info("Repositions price comparison into value instead of just cost.")
+        st.info(
+            "We're about $37/month more than a typical pool subscription service. Don't fight it on price — "
+            "fight it on accountability. Pay-per-completed-visit, photos every visit, and a quality guarantee "
+            "are genuinely different. The first question ('What made you start looking around?') is the most "
+            "important line on this card — reps who find the real reason close more than reps who argue cost."
+        )
 
     # -----------------------------
     # CORE OBJECTIONS
