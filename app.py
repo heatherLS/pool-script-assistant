@@ -541,7 +541,8 @@ with tab1:
             "• algaecide treatment\n"
             "• full filter & skimmer basket cleaning\n"
             "• before & after photos\n\n"
-            "And all chemicals are included — nothing extra, ever.",
+            "And all chemicals are included — nothing extra, ever.\n\n"
+            "Our goal is simple: every visit, we leave your pool better than we found it.",
             highlight=(active_step_key == "chk_serviceincl")
         )
         st.checkbox("✔️ What's Included", key="chk_serviceincl")
