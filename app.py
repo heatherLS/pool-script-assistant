@@ -1,6 +1,6 @@
 import streamlit as st
 
-st.set_page_config(page_title="🏊 Pool Script Assistant", layout="wide")
+st.set_page_config(page_title="🏊 Pool Sales Call Guide", layout="wide")
 
 # -----------------------------
 # RESPONSE LIBRARY
@@ -8,23 +8,23 @@ st.set_page_config(page_title="🏊 Pool Script Assistant", layout="wide")
 RESPONSES = {
     "Green Pool / Urgent": {
         "response": (
-            "Yeah — that’s exactly when most people call us. "
-            "We’ll start with a deep clean to get everything reset and balanced, "
-            "then maintain it so it stays clean and you don’t have to deal with it again."
+            "Yeah — that's exactly when most people call us. "
+            "We'll start with a deep clean to get everything reset and balanced, "
+            "then maintain it so it stays clean and you don't have to deal with it again."
         ),
         "why": "Matches urgency and clearly explains the reset → maintain model."
     },
     "Only Wants One Clean": {
         "response": (
-            "Totally get that — we’ll start with the deep clean to get everything cleaned up, "
+            "Totally get that — we'll start with the deep clean to get everything cleaned up, "
             "then do a few maintenance visits to keep it from going right back. "
-            "After that, you’re completely flexible."
+            "After that, you're completely flexible."
         ),
         "why": "Avoids saying no directly while reframing the follow-up visits as part of the solution."
     },
     "Price Too High": {
         "response": (
-            "Yeah — totally fair. What most customers like is that everything’s included — "
+            "Yeah — totally fair. What most customers like is that everything's included — "
             "cleaning, chemicals, balancing, and filter care — so there are no surprise costs."
         ),
         "why": "Acknowledges the objection and shifts the focus to value."
@@ -32,39 +32,39 @@ RESPONSES = {
     "Just Shopping Around": {
         "response": (
             "Totally makes sense — most people we talk to are comparing options. What we focus on is making it simple and consistent" 
-             "— everything’s included, and you can see exactly what’s being done after each visit. "
+             "— everything's included, and you can see exactly what's being done after each visit. "
         ),
         "why": "Keeps the rep calm and confident without sounding pushy."
     },
     "Does That Include Chemicals?": {
-        "response": "Yes — chemicals are included. You don’t need to provide anything.",
+        "response": "Yes — chemicals are included. You don't need to provide anything.",
         "why": "Directly removes one of the most common friction points."
     },
     "Who Is Coming?": {
         "response": (
             "We connect you with a vetted local pool pro. Once they pick up the job, "
-            "you’ll see their info and be able to message them directly."
+            "you'll see their info and be able to message them directly."
         ),
         "why": "Builds trust and transparency."
     },
-    "I’ve Been Ghosted Before": {
+    "I've Been Ghosted Before": {
         "response": (
-            "Yeah — we hear that a lot. That’s actually one of the biggest reasons customers like using us. "
-            "If you’re ever not happy for any reason, we handle switching you to a new pro, "
-            "so you don’t have to start all over again."
+            "Yeah — we hear that a lot. That's actually one of the biggest reasons customers like using us. "
+            "If you're ever not happy for any reason, we handle switching you to a new pro, "
+            "so you don't have to start all over again."
         ),
         "why": "Turns a pain point into one of your strongest competitive advantages."
     },
-    "I Don’t Want Ongoing Service": {
+    "I Don't Want Ongoing Service": {
         "response": (
             "Totally get that — we do a few follow-up maintenance visits up front to keep the pool stable "
-            "after the clean. After that, you’re completely flexible."
+            "after the clean. After that, you're completely flexible."
         ),
         "why": "Keeps the explanation honest without sounding rigid or contractual."
     },
     "Can I Skip or Pause?": {
         "response": (
-            "Absolutely — you’re never locked into the schedule. "
+            "Absolutely — you're never locked into the schedule. "
             "You can skip or pause anytime as long as you let us know at least 48 hours ahead."
         ),
         "why": "Gives the customer control and reduces fear of overpaying."
@@ -72,22 +72,22 @@ RESPONSES = {
     "Trust / Wants to Try Us First": {
         "response": (
             "Totally fair — a lot of people feel that way at first. "
-            "That’s why we make it simple and consistent, and if you’re ever not happy for any reason, "
-            "we handle switching you to a new pro so you don’t have to start over."
+            "That's why we make it simple and consistent, and if you're ever not happy for any reason, "
+            "we handle switching you to a new pro so you don't have to start over."
         ),
         "why": "Acknowledges trust hesitation and uses your strongest service advantage to reduce risk."
     },
     "Selling Home": {
         "response": (
-            "That actually works really well for this. We’ll get it cleaned up, "
-            "then keep it maintained while the home is being shown so you don’t have to worry about it."
+            "That actually works really well for this. We'll get it cleaned up, "
+            "then keep it maintained while the home is being shown so you don't have to worry about it."
         ),
         "why": "Frames service as a simple solution for sellers."
     },
     "New Pool Owner / Needs Guidance": {
         "response": (
-            "Yeah — that’s super common. We handle the cleaning, chemicals, and balancing for you, "
-            "so you don’t have to figure it all out yourself."
+            "Yeah — that's super common. We handle the cleaning, chemicals, and balancing for you, "
+            "so you don't have to figure it all out yourself."
         ),
         "why": "Reduces overwhelm and positions the service as easy."
     },
@@ -101,13 +101,13 @@ RESPONSES = {
     "Why Do I Need Weekly?": {
         "response": (
             "The deep clean gets it fixed — the next few visits are what keep it from going right back. "
-            "That’s what keeps the pool stable."
+            "That's what keeps the pool stable."
         ),
         "why": "Explains the logic behind recurring in a simple, confident way."
     },
     "Assumptive Close": {
         "response": (
-            "Let’s get that taken care of — I have the earliest 2-day window of Thursday or Friday available. "
+            "Let's get that taken care of — I have the earliest 2-day window of Thursday or Friday available. "
             "Which works better for you?"
         ),
         "why": "Keeps momentum moving and guides the customer into the next step."
@@ -115,14 +115,14 @@ RESPONSES = {
 }
 
 TOP_10_LINES = [
-    "What’s the pool looking like right now?",
+    "What's the pool looking like right now?",
     "We start with a deep clean, then maintain it so it stays that way.",
     "Chemicals are included.",
     "Each visit includes cleaning, balancing, and filter care.",
     "Most customers are around $150/month.",
     "We do a few maintenance visits up front to keep everything stable.",
-    "You can skip or pause anytime with 48 hours’ notice.",
-    "If you’re not happy, we’ll switch you to a new pro.",
+    "You can skip or pause anytime with 48 hours' notice.",
+    "If you're not happy, we'll switch you to a new pro.",
     "We connect you with a vetted local pool pro.",
     "I have Thursday or Friday available — which works better for you?",
 ]
@@ -144,6 +144,9 @@ def info_card(title: str, body: str, highlight: bool = False) -> None:
     border_color = "#2563eb" if highlight else "#cbd5e1"
     title_color = "#0f172a"
     body_color = "#111827"
+
+    # Escape $ so Streamlit's KaTeX renderer doesn't treat $..$ as inline math
+    safe_body = body.replace("$", "&#36;")
 
     st.markdown(
         f"""
@@ -168,7 +171,7 @@ def info_card(title: str, body: str, highlight: bool = False) -> None:
                 font-size: 1.05rem;
                 color: {body_color};
             ">
-                {body}
+                {safe_body}
             </div>
         </div>
         """,
@@ -214,7 +217,7 @@ def faq_card(question: str, answer: str, what_to_say: str) -> None:
 # -----------------------------
 # HEADER
 # -----------------------------
-st.title("🏊 Pool Sales Script Assistant")
+st.title("🏊 Pool Sales Call Guide")
 st.caption("Built for live rep support, objection handling, and fast pool call guidance.")
 
 tab1, tab2, tab3, tab4, tab5, tab6 = st.tabs([
@@ -233,25 +236,41 @@ with tab1:
     st.subheader("Full Pool Call Flow")
     st.caption("Simple, trustworthy guide-to-sale from greeting to close.")
 
-    setup_col1, setup_col2 = st.columns([2, 1])
+    setup_col1, setup_col2, setup_col3 = st.columns([2, 1.5, 2])
     with setup_col1:
         rep_name = st.text_input("Your Name", value="Heather", placeholder="Enter your name...", key="rep_name_input")
         if not rep_name.strip():
             rep_name = "Heather"
     with setup_col2:
-        st.markdown("<div style=’margin-top:28px’></div>", unsafe_allow_html=True)
-        needs_deep_clean = st.checkbox("Customer needs a deep clean", value=True, key="needs_deep_clean")
+        state = st.radio("State", ["FL", "GA", "TX"], horizontal=True, key="state_select")
+    with setup_col3:
+        pool_condition = st.radio("Pool Condition", ["Clear", "Cloudy", "Green", "Black"], horizontal=True, key="pool_condition")
+
+    # Deep clean decision for clear pools happens mid-flow, after value anchoring
+    # For all other conditions it's always required
+    needs_deep_clean = True  # default; Clear pools override this via mid-flow radio
+
+    # Pricing defaults driven by state + condition
+    _fl = state == "FL"
+    _dc_defaults = {
+        "Clear":  100.0 if _fl else 200.0,
+        "Cloudy": 100.0 if _fl else 200.0,
+        "Green":  300.0 if _fl else 500.0,
+        "Black":  500.0 if _fl else 1000.0,
+    }
+    _pv_defaults = {"FL": 38.0, "GA": 82.0, "TX": 60.0}
+    _default_dc = _dc_defaults[pool_condition]
+    _default_pv = _pv_defaults[state]
 
     st.info("""
-    🔥 Live Call Reminders
-    • Keep it simple
-    • Don’t introduce objections early
-    • Guide → price → close
-    • If resistance appears, go to Tab 2
+    🔥 Live Call Reminders  •  Mirror first → anchor the value → then price  •  Don't introduce objections early  •  If resistance appears, go to Tab 2
+
+    💙 Human Moment Rule: When a customer shares something personal ("my wife was in the hospital", "she passed away") — pause, acknowledge it, then continue naturally. "I'm really sorry to hear that — let's make this easy for you." Never skip it. Never overdo it.
     """)
 
     step_order = [
-        ("chk_service", "Service Explained"),
+        ("chk_mirror", "Mirrored & Bridged"),
+        ("chk_anchor", "Value Anchored"),
         ("chk_contact", "Contact Info"),
         ("chk_price", "Pricing"),
         ("chk_serviceincl", "What's Included"),
@@ -298,8 +317,8 @@ with tab1:
             "Deep Clean Price",
             min_value=0.0,
             step=1.0,
-            value=300.0,
-            key="deep_clean_input"
+            value=_default_dc,
+            key=f"deep_clean_input_{state}_{pool_condition}"
         )
 
     with q2:
@@ -307,8 +326,8 @@ with tab1:
             "Recurring Price Per Visit",
             min_value=0.0,
             step=1.0,
-            value=38.0,
-            key="recurring_visit_input"
+            value=_default_pv,
+            key=f"recurring_visit_input_{state}"
         )
 
     with q3:
@@ -337,14 +356,14 @@ with tab1:
         info_card(
             "📞 Inbound Call",
             f"Hey this is {rep_name} with Home Gnome — I can help you get your pool taken care of today.\n\n"
-            "What’s the pool looking like right now — clear, cloudy, or starting to turn green?"
+            "What's the pool looking like right now — clear, cloudy, or starting to turn green?"
         )
     with gcol2:
         info_card(
             "💬 Outbound / SMS Follow-Up",
             f"Hey this is {rep_name} with Home Gnome — you were just texting us about pool service.\n\n"
             "I can get you a quote and walk you through everything real quick.\n\n"
-            "What’s the pool looking like right now — clear, cloudy, or starting to turn green?"
+            "What's the pool looking like right now — clear, cloudy, or starting to turn green?"
         )
 
     st.divider()
@@ -352,36 +371,123 @@ with tab1:
     col1, col2 = st.columns(2)
 
     with col1:
-        show_active_marker("chk_service", active_step_key)
 
-        if needs_deep_clean:
-            service_body = (
-                "Got it — what we’ll do is start with a deep clean to get everything reset and balanced, "
-                "then maintain it so it stays clean.\n\n"
-                "Our goal is simple — every visit, we leave your pool better than we found it."
-            )
-        else:
-            service_body = (
-                "Great — your pool is already looking clear, which means we're ahead of the game.\n\n"
-                "What we like to do is start with a one-time deep clean to get everything properly balanced "
-                "and documented — it gives your pro a full baseline so they know exactly what they're working "
-                "with and can keep it looking exactly like this.\n\n"
-                "After that it's just the regular weekly service to maintain it."
-            )
-        info_card(
-            "1. Position the Service",
-            service_body,
-            highlight=(active_step_key == "chk_service")
+        # --- STEP 1: MIRROR THEIR SITUATION ---
+        show_active_marker("chk_mirror", active_step_key)
+
+        mirror_body = (
+            "Repeat back exactly what the customer said — in their words, not yours. "
+            "This shows you heard them before you start talking.\n\n"
+            "They say: \"I just need the floor vacuumed, that's it.\"\n"
+            "You say: \"Got it — so you're looking to get the floor cleaned out. "
+            "Let me walk you through what we can do for you.\"\n\n"
+            "They say: \"I want an acid wash.\"\n"
+            "You say: \"Got it — you're looking for an acid wash. "
+            "Let me tell you about what we can offer.\"\n\n"
+            "They say: \"I just need a one-time clean.\"\n"
+            "You say: \"Got it — you're looking for a one-time service. "
+            "Here's what that looks like with us.\"\n\n"
+            "They say: \"I just need the chemicals balanced.\"\n"
+            "You say: \"Got it — you want someone to come balance everything out. "
+            "I can get you set up.\"\n\n"
+            "We don't offer vacuum-only or acid washes — but you validate FIRST, "
+            "then bridge to what we CAN do. Never skip the mirror."
         )
 
-        st.checkbox("✔️ Service Explained", key="chk_service")
-        show_step_hint("chk_service", active_step_key, active_step_label)
+        info_card("1. Mirror Their Request", mirror_body, highlight=(active_step_key == "chk_mirror"))
+        st.checkbox("✔️ Mirrored & Bridged", key="chk_mirror")
+        show_step_hint("chk_mirror", active_step_key, active_step_label)
 
+        # --- STEPS 2-4: ANCHOR THE VALUE ---
+        show_active_marker("chk_anchor", active_step_key)
+
+        if pool_condition == "Clear":
+            why_body = (
+                "\"So in situations like yours, where the pool is already clear, what we typically recommend is a lighter deep clean first — "
+                "not because anything is wrong, but because it resets anything sitting underneath that you can't see yet.\n\n"
+                "Even when it looks clean, there's usually buildup starting along the walls, floor, or filter system — "
+                "and if we knock that out now, it keeps you from dealing with algae or stains popping up later.\""
+            )
+            skip_body = (
+                "\"If you skip that reset, what usually happens is buildup starts catching up — you get staining, algae spots, "
+                "or the chemistry starts drifting — and you end up chasing it instead of just maintaining it.\""
+            )
+            outcome_body = (
+                "\"What the deep clean does is fully reset everything so when we're done, it's clean underneath, not just on the surface. "
+                "From there, maintenance keeps it that way without you ever having to fight it.\""
+            )
+        elif pool_condition == "Cloudy":
+            why_body = (
+                "\"So the reason we start with a deep clean — even when the water looks like it might just need some chemicals — "
+                "is because what's causing the cloudiness is usually sitting in the filter system or walls.\n\n"
+                "What happens is people add chemicals, it clears up for a bit, but it keeps coming back because the root cause was never fully addressed.\""
+            )
+            skip_body = (
+                "\"If you skip that step, what usually happens is it either doesn't fully clear, or it comes right back within a couple weeks — "
+                "and you end up spending more time and money chasing it.\""
+            )
+            outcome_body = (
+                "\"What the deep clean does is fully reset everything — so when we're done, it's actually clean underneath, not just on the surface. "
+                "From there, maintenance keeps it that way without you having to fight it every week.\""
+            )
+        elif pool_condition == "Green":
+            why_body = (
+                "\"So the reason we start with a deep clean is because algae doesn't just live in the water — it embeds in the surfaces and filter.\n\n"
+                "What happens is people shock it, it turns blue for a day or two, but then it comes right back because it was never fully treated and reset.\""
+            )
+            skip_body = (
+                "\"If you skip that step, it either doesn't fully clear or it comes right back within a couple weeks — "
+                "and you end up spending more time and money chasing it.\""
+            )
+            outcome_body = (
+                "\"What the deep clean does is fully reset everything — so when we're done, it's actually clean underneath, not just on the surface. "
+                "From there, maintenance keeps it that way.\""
+            )
+        else:  # Black
+            why_body = (
+                "\"So black algae is one of the hardest things to remove — it has roots that go into the surface.\n\n"
+                "You can add chemicals all day and it won't fully clear because the roots are still there. The deep clean is what actually gets it out.\""
+            )
+            skip_body = (
+                "\"If we skip the deep clean, it comes right back — black algae is relentless. This is the only way to actually solve it.\""
+            )
+            outcome_body = (
+                "\"What the deep clean does is fully reset everything — gets the roots out, treats the surface, balances the water. "
+                "From there, weekly maintenance keeps it from ever coming back.\""
+            )
+
+        info_card("2. Why a Deep Clean Exists", why_body, highlight=(active_step_key == "chk_anchor"))
+        info_card("3. What Happens If They Skip It", skip_body)
+        info_card("4. Paint the Outcome", outcome_body)
+
+        # Clear pool only: deep clean decision point (shown AFTER value is anchored)
+        if pool_condition == "Clear":
+            dc_price = 100 if _fl else 200
+            dc_choice = st.radio(
+                "How would you like to proceed?",
+                [f"Include deep clean — ${dc_price} (recommended)", "Skip deep clean — weekly maintenance only"],
+                key="clear_dc_choice"
+            )
+            needs_deep_clean = "Include deep clean" in dc_choice
+
+            if not needs_deep_clean:
+                st.info(
+                    "💬 **If they hesitate on the deep clean:**\n\n"
+                    "\"Totally fair — honestly a lot of people feel that way when the pool already looks clean.\"\n\n"
+                    "*(pause — let that land)*\n\n"
+                    "\"We can absolutely start you with just the weekly maintenance and skip that first reset if you'd prefer.\"\n\n"
+                    "\"The only difference is we're maintaining what's there instead of fully resetting it — but if everything's been staying clean for you, that can still work just fine.\""
+                )
+
+        st.checkbox("✔️ Value Anchored", key="chk_anchor")
+        show_step_hint("chk_anchor", active_step_key, active_step_label)
+
+        # --- STEP 5: VERIFY CUSTOMER INFORMATION ---
         show_active_marker("chk_contact", active_step_key)
 
         info_card(
-            "2. Verify Customer Information Early",
-            "Before I pull exact pricing, let me just make sure I’ve got the right info.\n\n"
+            "5. Verify Customer Information",
+            "Before I pull exact pricing, let me just make sure I've got the right info.\n\n"
             "I have your (NAME) as — did I get that right?\n"
             "And I have the service address as (ADDRESS) — is that correct?\n"
             "And is (PHONE) still the best number for you?",
@@ -391,26 +497,35 @@ with tab1:
         st.checkbox("✔️ Contact Info Verified", key="chk_contact")
         show_step_hint("chk_contact", active_step_key, active_step_label)
 
+        # --- STEP 6: PRICING ---
         show_active_marker("chk_price", active_step_key)
 
-        if needs_deep_clean:
+        _monthly_hint = f"📌 If they ask about monthly: \"Most customers are around ${monthly_display} per month — it's billed per visit so you only pay for what's completed.\""
+        if pool_condition == "Clear" and not needs_deep_clean:
             pricing_body = (
-                f"To get it cleaned up, it’s ${deep_clean_display} for the first visit based on the condition.\n\n"
-                f"After that, it’s ${recurring_display} per visit for weekly maintenance — so you’re only paying for completed service.\n\n"
-                f"📌 If they ask about monthly: \"Most customers are around ${monthly_display} per month — it’s billed per visit so you only pay for what’s completed.\""
+                f"It's ${recurring_display} per visit for weekly maintenance — so you're only paying for completed service.\n\n"
+                f"{_monthly_hint}"
             )
-        else:
+        elif pool_condition == "Clear":
             pricing_body = (
-                f"To get everything dialed in from the start, it’s ${deep_clean_display} for the initial setup clean — "
+                f"To get everything dialed in from the start, it's ${deep_clean_display} for the initial deep clean — "
                 f"that gets your pro fully calibrated so the ongoing service runs exactly the way it should.\n\n"
-                f"After that, it’s ${recurring_display} per visit for weekly maintenance — so you’re only paying for completed service.\n\n"
-                f"📌 If they ask about monthly: \"Most customers are around ${monthly_display} per month — it’s billed per visit so you only pay for what’s completed.\""
+                f"After that, it's ${recurring_display} per visit for weekly maintenance — so you're only paying for completed service.\n\n"
+                f"{_monthly_hint}"
             )
-        info_card(
-            "3. Pricing Language That Converts",
-            pricing_body,
-            highlight=(active_step_key == "chk_price")
-        )
+        elif pool_condition == "Black":
+            pricing_body = (
+                f"That deep clean is ${deep_clean_display} for the first visit — that's what gets everything properly treated and reset.\n\n"
+                f"After that, it's ${recurring_display} per visit for weekly maintenance — so you're only paying for completed service.\n\n"
+                f"{_monthly_hint}"
+            )
+        else:  # Cloudy or Green
+            pricing_body = (
+                f"That deep clean is ${deep_clean_display} for the first visit.\n\n"
+                f"After that, it's ${recurring_display} per visit for weekly maintenance — so you're only paying for completed service.\n\n"
+                f"{_monthly_hint}"
+            )
+        info_card("6. Pricing", pricing_body, highlight=(active_step_key == "chk_price"))
 
         st.checkbox("✔️ Pricing Clearly Explained", key="chk_price")
         show_step_hint("chk_price", active_step_key, active_step_label)
@@ -418,21 +533,15 @@ with tab1:
         show_active_marker("chk_serviceincl", active_step_key)
 
         info_card(
-            "4. Explain What’s Included",
-            "The deep clean includes:\n\n"
+            "7. What's Included",
+            "Every visit — skimming, vacuuming, brushing, chemical balancing, "
+            "and the filter cleaned as needed.\n\n"
+            "The deep clean is all of that, plus:\n\n"
             "• shocking the pool\n"
-            "• skimming & vacuuming\n"
             "• algaecide treatment\n"
-            "• cleaning the filter & skimmer basket\n"
-            "• full chemical balancing\n"
+            "• full filter & skimmer basket cleaning\n"
             "• before & after photos\n\n"
-            "Each maintenance visit includes:\n\n"
-            "• skimming\n"
-            "• vacuuming\n"
-            "• brushing\n"
-            "• chemical balancing\n"
-            "• cleaning the filter as needed\n\n"
-            "And all chemicals are included.",
+            "And all chemicals are included — nothing extra, ever.",
             highlight=(active_step_key == "chk_serviceincl")
         )
         st.checkbox("✔️ What's Included", key="chk_serviceincl")
@@ -441,8 +550,8 @@ with tab1:
         show_active_marker("chk_close", active_step_key)
 
         info_card(
-            "5. Assumptive Close",
-            "Let’s get that pool taken care of — I have Thursday or Friday available as our first 2-day window. Does that work for you?",
+            "8. Assumptive Close",
+            "Let's get that pool taken care of — I have Thursday or Friday available as our first 2-day window. Does that work for you?",
             highlight=(active_step_key == "chk_close")
         )
 
@@ -452,8 +561,8 @@ with tab1:
         show_active_marker("chk_email", active_step_key)
 
         info_card(
-            "6. Email Verification",
-            "Great — what’s the best email for your account?\n\n"
+            "9. Email Verification",
+            "Great — what's the best email for your account?\n\n"
             "I have your email as (PHONETICALLY SPELLED OUT @ ALWAYS.com).\n\n"
             "To confirm, just in case we have it wrong, your phone number is (___) ___-____.",
             highlight=(active_step_key == "chk_email")
@@ -467,7 +576,7 @@ with tab1:
         show_active_marker("chk_property", active_step_key)
 
         info_card(
-            "7. Property Details",
+            "10. Property Details",
             "Are there any pets?\n"
             "If so, during the time of service, pets should be secured.\n\n"
             "Is the property in a gated community?\n"
@@ -482,10 +591,10 @@ with tab1:
         show_active_marker("chk_recap", active_step_key)
 
         info_card(
-            "8. Order Recap",
-            f"To confirm, we’re scheduling you for "
-            f"{'weekly maintenance only' if deep_clean_input == 0 else 'deep cleaning + weekly maintenance'}.\n\n"
-            f"Your first visit is ${deep_clean_display if deep_clean_input > 0 else recurring_display}, "
+            "11. Order Recap",
+            f"To confirm, we're scheduling you for "
+            f"{'weekly maintenance only' if not needs_deep_clean else 'deep cleaning + weekly maintenance'}.\n\n"
+            f"Your first visit is ${deep_clean_display if needs_deep_clean else recurring_display}, "
             f"and ongoing service is billed at ${recurring_display} per visit.",
             highlight=(active_step_key == "chk_recap")
         )
@@ -497,9 +606,9 @@ with tab1:
         show_active_marker("chk_policy", active_step_key)
 
         info_card(
-            "9. Policy Disclosure (Verbatim)",
+            "12. Policy Disclosure (Verbatim)",
             "Quick heads-up: By booking, you agree to our Terms of Service.\n"
-            "We just ask for at least 48 hours’ notice if you ever need to change your schedule.\n"
+            "We just ask for at least 48 hours' notice if you ever need to change your schedule.\n"
             "You may get texts or calls about your service—you can opt out anytime.\n"
             "Full terms are at homegnome.com/terms.",
             highlight=(active_step_key == "chk_policy")
@@ -511,10 +620,10 @@ with tab1:
         show_active_marker("chk_payment", active_step_key)
 
         info_card(
-            "10. Payment Method / Secure Link",
+            "13. Payment Method / Secure Link",
             "Perfect, all I need is a payment method to schedule you. We accept major credit and debit cards, "
-            "and we won’t charge you until 3 days after the service is complete.\n\n"
-            "I’m sending over a secure link for you to add your payment info directly, since we don’t have access to that on our end. "
+            "and we won't charge you until 3 days after the service is complete.\n\n"
+            "I'm sending over a secure link for you to add your payment info directly, since we don't have access to that on our end. "
             "This will go through text and email.",
             highlight=(active_step_key == "chk_payment")
         )
@@ -526,13 +635,13 @@ with tab1:
         show_active_marker("chk_expectation", active_step_key)
 
         info_card(
-            "11. Expectation Setting / App / Portal",
-            "Once the crew adds the job to their route, you’ll receive an email confirming your two-day window "
+            "14. Expectation Setting / App / Portal",
+            "Once the crew adds the job to their route, you'll receive an email confirming your two-day window "
             "and letting you know a Pro picked the job up. At that point, you can message them directly.\n\n"
-            "You’ll also receive a text with a link to our free app and a temporary password — your email will be your username.\n\n"
+            "You'll also receive a text with a link to our free app and a temporary password — your email will be your username.\n\n"
             "Through the app and web login, you can request additional services, make changes to your account, "
-            "and it’s the fastest way to contact our Support Team.\n\n"
-            "📋 Once you’re logged in, there are a few important questions about your pool we’d love for you to answer — "
+            "and it's the fastest way to contact our Support Team.\n\n"
+            "📋 Once you're logged in, there are a few important questions about your pool we'd love for you to answer — "
             "things like pool size and filtration details — so your Pro is fully prepared before they arrive.",
             highlight=(active_step_key == "chk_expectation")
         )
@@ -542,9 +651,9 @@ with tab1:
 
 
         info_card(
-            "12. Landline-Only Customers",
+            "15. Landline-Only Customers",
             "To log onto the website, enter your email address and click forgot password. "
-            "You’ll receive an email with a temporary password. Make sure to change the password once you log in.\n\n"
+            "You'll receive an email with a temporary password. Make sure to change the password once you log in.\n\n"
             "Websites:\n"
             "my.lawnstarter.com\n"
             "my.lawnlove.com\n"
@@ -554,8 +663,8 @@ with tab1:
         show_active_marker("chk_nextdoor", active_step_key)
 
         info_card(
-            "13. NextDoor Referral Credit",
-            "When you log in to your account, you’ll be able to recommend us on NextDoor. "
+            "16. NextDoor Referral Credit",
+            "When you log in to your account, you'll be able to recommend us on NextDoor. "
             "Do this and receive a $20 credit to your account.",
             highlight=(active_step_key == "chk_nextdoor")
         )
@@ -564,7 +673,7 @@ with tab1:
         show_step_hint("chk_nextdoor", active_step_key, active_step_label)
 
         info_card(
-            "14. Final Closing",
+            "17. Final Closing",
             "Any other questions before I let you go?\n\n"
             "If anything comes up, you can always reach out through the app or portal.\n\n"
             "Thank you for choosing LawnStarter / Lawn Love / Home Gnome, have a great day!"
@@ -575,27 +684,31 @@ with tab1:
 
     st.subheader("🧠 Quick Call Flow Cheat Sheet")
     st.markdown("""
-    1. Ask what the pool looks like  
-    2. Verify name, address, and phone early  
-    3. Explain deep clean + maintenance  
-    4. Say chemicals are included  
-    5. Use monthly pricing  
-    6. Guide frequency based on condition  
-    7. Close confidently  
-    8. Verify email  
-    9. Ask property details  
-    10. Review order  
-    11. Send payment link  
-    12. Read policy disclosure  
-    13. Reinforce 48-hour notice  
-    14. Set expectations for confirmation + app
+    1. Mirror their situation — show you heard them
+    2. Explain why a deep clean exists
+    3. What happens if they skip it
+    4. Paint the outcome
+    5. Verify name, address, and phone
+    6. Give pricing (deep clean + per visit)
+    7. Explain what's included
+    8. Assumptive close
+    9. Verify email
+    10. Property details
+    11. Order recap
+    12. Policy disclosure
+    13. Send payment link
+    14. Set expectations for app + portal
+    15. Nextdoor promo
     """)
 
 
     missing_steps = []
 
-    if not st.session_state.get("chk_service"):
-        missing_steps.append("Service Explained")
+    if not st.session_state.get("chk_mirror"):
+        missing_steps.append("Mirrored & Bridged")
+
+    if not st.session_state.get("chk_anchor"):
+        missing_steps.append("Value Anchored")
 
     if not st.session_state.get("chk_contact"):
         missing_steps.append("Contact Info")
@@ -604,7 +717,7 @@ with tab1:
         missing_steps.append("Pricing")
 
     if not st.session_state.get("chk_serviceincl"):
-        missing_steps.append("What’s Included")
+        missing_steps.append("What's Included")
 
     if not st.session_state.get("chk_close"):
         missing_steps.append("Attempted Close")
@@ -652,8 +765,8 @@ with tab2:
         ["Needs Monthly Price", "Flat Monthly Request", "Comparing Lower Price", "Pay in Installments?"],
         ["Green Pool / Urgent", "Price Too High", "Just Shopping Around"],
         ["Only Wants One Clean", "Selling Home", "Wants to Think About It"],
-        ["Who Is Coming?", "I’ve Been Ghosted Before", "Trust / Wants to Try Us First"],
-        ["I Don’t Want Ongoing Service", "Why Do I Need Weekly?", "Can I Skip or Pause?"],
+        ["Who Is Coming?", "I've Been Ghosted Before", "Trust / Wants to Try Us First"],
+        ["I Don't Want Ongoing Service", "Why Do I Need Weekly?", "Can I Skip or Pause?"],
         ["Does That Include Chemicals?", "New Pool Owner / Needs Guidance", "Assumptive Close"],
     ]
 
@@ -673,7 +786,7 @@ with tab2:
         st.subheader("🎯 Suggested Response")
         st.success(
             f"Most customers are around {monthly} per month for weekly service.\n\n"
-            f"It’s billed at {visit} per visit, but that’s typically what it comes out to."
+            f"It's billed at {visit} per visit, but that's typically what it comes out to."
         )
 
         st.subheader("💡 Why This Works")
@@ -682,7 +795,7 @@ with tab2:
     elif selected == "Flat Monthly Request":
         st.subheader("🎯 Suggested Response")
         st.success(
-            f"Totally get that — ours is billed per visit so you’re only paying for completed service, "
+            f"Totally get that — ours is billed per visit so you're only paying for completed service, "
             f"but most customers think of it as about {monthly} per month."
         )
 
@@ -692,8 +805,8 @@ with tab2:
     elif selected == "Comparing Lower Price":
         st.subheader("🎯 Suggested Response")
         st.success(
-            f"Got it — most customers we work with are around {monthly} per month because everything’s included — "
-            f"cleaning, chemicals, and balancing — so there aren’t extra costs popping up."
+            f"Got it — most customers we work with are around {monthly} per month because everything's included — "
+            f"cleaning, chemicals, and balancing — so there aren't extra costs popping up."
         )
 
         st.subheader("💡 Why This Works")
@@ -706,8 +819,8 @@ with tab2:
         st.subheader("🎯 Suggested Response")
         st.success(
             f"Totally fair — most customers we work with are around {monthly} per month for weekly service.\n\n"
-            f"It’s billed at {visit} per visit, and that includes cleaning, chemicals, balancing, and filter care — "
-            f"so there aren’t extra costs."
+            f"It's billed at {visit} per visit, and that includes cleaning, chemicals, balancing, and filter care — "
+            f"so there aren't extra costs."
         )
 
         st.subheader("💡 Why This Works")
@@ -716,7 +829,7 @@ with tab2:
     elif selected == "Only Wants One Clean":
         st.subheader("🎯 Suggested Response")
         st.success(
-            f"Totally get that — we’ll start with the deep clean at {deep} to get everything reset.\n\n"
+            f"Totally get that — we'll start with the deep clean at {deep} to get everything reset.\n\n"
             f"After that, most customers are around {monthly} per month for weekly service, "
             f"just to keep it from going right back."
         )
@@ -728,15 +841,15 @@ with tab2:
         st.subheader("🎯 Suggested Response")
         st.success(
             f"That makes sense — we hear that a lot with homes getting ready for photos and showings.\n\n"
-            f"What we’ll do is get it cleaned up first at {deep}, then keep it show-ready so you don’t have to worry "
+            f"What we'll do is get it cleaned up first at {deep}, then keep it show-ready so you don't have to worry "
             f"about it slipping backward while the home is on the market.\n\n"
             f"Most customers are around {monthly} per month during that time."
         )
 
         st.subheader("💡 Why This Works")
-        st.info("Aligns with the seller’s goal: presentation and convenience.")
+        st.info("Aligns with the seller's goal: presentation and convenience.")
 
-    elif selected == "I Don’t Want Ongoing Service":
+    elif selected == "I Don't Want Ongoing Service":
         st.subheader("🎯 Suggested Response")
         st.success(
             f"Totally get that — we do a few follow-up maintenance visits up front to keep the pool stable after the clean.\n\n"
@@ -759,7 +872,7 @@ with tab2:
     elif selected == "Can I Skip or Pause?":
         st.subheader("🎯 Suggested Response")
         st.success(
-            "Absolutely — you’re not locked in. You can skip or pause anytime as long as you let us know at least 48 hours ahead."
+            "Absolutely — you're not locked in. You can skip or pause anytime as long as you let us know at least 48 hours ahead."
         )
 
         st.subheader("💡 Why This Works")
@@ -769,7 +882,7 @@ with tab2:
         st.subheader("🎯 Suggested Response")
         st.success(
             "Totally fair — a lot of people feel that way at first. "
-            "If you’re ever not happy, we handle switching you to a new pro so you don’t have to start over."
+            "If you're ever not happy, we handle switching you to a new pro so you don't have to start over."
         )
 
         st.subheader("💡 Why This Works")
@@ -820,10 +933,10 @@ Use this tab only when the customer gives resistance or hesitation.
 
 **Examples:**
 - “I only want one clean”
-- “I’m still shopping around”
+- “I'm still shopping around”
 - “That sounds expensive”
-- “I don’t want to be locked in”
-- “I’ve had bad luck with pool guys before”
+- “I don't want to be locked in”
+- “I've had bad luck with pool guys before”
 - “I just want to see how you do first”
 
 **Do not** front-load these into the main script unless the customer brings them up.
@@ -835,7 +948,7 @@ Use this tab only when the customer gives resistance or hesitation.
 Guide the customer through the service, pricing, and close.
 
 **2. Only pull an objection response when needed**  
-Do not introduce concerns they haven’t raised.
+Do not introduce concerns they haven't raised.
 
 **3. Answer briefly, then return to the sale**  
 After handling the concern, move right back to closing.
@@ -843,10 +956,10 @@ After handling the concern, move right back to closing.
 
     with st.expander("⚡ Best 'Return to Close' Lines"):
         st.markdown("""
-- **Let’s get that taken care of — I have Thursday or Friday available. Which works better?**
-- **That’s exactly why most people get started now — I do have availability this week.**
+- **Let's get that taken care of — I have Thursday or Friday available. Which works better?**
+- **That's exactly why most people get started now — I do have availability this week.**
 - **Totally fair — with that in mind, I can get you on the schedule for Thursday or Friday. Which works better?**
-- **That makes sense — let’s go ahead and lock in your first window so this is handled.**
+- **That makes sense — let's go ahead and lock in your first window so this is handled.**
         """)
 
 with tab3:
@@ -878,8 +991,8 @@ with tab3:
 
         st.markdown("**Rep:**")
         st.success(
-            "Got it — that’s exactly when most people reach out. "
-            "What we’ll do is start with a deep clean to get everything reset and balanced, "
+            "Got it — that's exactly when most people reach out. "
+            "What we'll do is start with a deep clean to get everything reset and balanced, "
             "then maintain it so it stays clean."
         )
 
@@ -890,22 +1003,22 @@ with tab3:
 
         st.markdown("**Rep (pricing):**")
         st.success(
-            f"To get it cleaned up, it’s {deep} for the first visit.\n\n"
+            f"To get it cleaned up, it's {deep} for the first visit.\n\n"
             f"After that, most customers are around {monthly} per month for weekly service — "
             f"billed at {visit} per visit."
         )
 
-        st.markdown("**Customer:** That’s kind of expensive.")
+        st.markdown("**Customer:** That's kind of expensive.")
 
         st.markdown("**Rep:**")
         st.success(
             f"Totally fair — most customers we work with are around {monthly} per month, "
-            "and that includes cleaning, chemicals, and balancing so you’re not dealing with extra costs."
+            "and that includes cleaning, chemicals, and balancing so you're not dealing with extra costs."
         )
 
         st.markdown("**Rep (close):**")
         st.success(
-            "Let’s get that taken care of — I have Thursday or Friday available. Which works better?"
+            "Let's get that taken care of — I have Thursday or Friday available. Which works better?"
         )
 
     # -----------------------------
@@ -914,12 +1027,12 @@ with tab3:
     elif scenario == "Price Shopper":
         st.markdown("### 💰 Price Shopper Call")
 
-        st.markdown("**Customer:** I’m just calling around getting quotes.")
+        st.markdown("**Customer:** I'm just calling around getting quotes.")
 
         st.markdown("**Rep:**")
         st.success(
             "Totally makes sense — most people we talk to are comparing options. "
-            "I’ll give you a clear picture so you can compare apples to apples."
+            "I'll give you a clear picture so you can compare apples to apples."
         )
 
         st.markdown("**Rep:**")
@@ -934,12 +1047,12 @@ with tab3:
 
         st.markdown("**Rep (pricing):**")
         st.success(
-            f"To get it cleaned up, it’s {deep} for the first visit.\n\n"
+            f"To get it cleaned up, it's {deep} for the first visit.\n\n"
             f"After that, most customers are around {monthly} per month for weekly service — "
             f"billed at {visit} per visit."
         )
 
-        st.markdown("**Customer:** Okay, I’m still looking around.")
+        st.markdown("**Customer:** Okay, I'm still looking around.")
 
         st.markdown("**Rep:**")
         st.success(
@@ -956,13 +1069,13 @@ with tab3:
 
         st.markdown("**Rep:**")
         st.success(
-            "Yeah — that’s super common. We handle the cleaning, chemicals, and balancing for you, "
-            "so you don’t have to figure it all out yourself."
+            "Yeah — that's super common. We handle the cleaning, chemicals, and balancing for you, "
+            "so you don't have to figure it all out yourself."
         )
 
         st.markdown("**Rep:**")
         st.success(
-            "What we’ll do is start with a deep clean if needed, then maintain it so it stays clean and consistent."
+            "What we'll do is start with a deep clean if needed, then maintain it so it stays clean and consistent."
         )
 
         st.markdown("**Rep:**")
@@ -972,7 +1085,7 @@ with tab3:
 
         st.markdown("**Rep (pricing):**")
         st.success(
-            f"To get it cleaned up, it’s {deep} for the first visit.\n\n"
+            f"To get it cleaned up, it's {deep} for the first visit.\n\n"
             f"After that, most customers are around {monthly} per month for weekly service — "
             f"billed at {visit} per visit."
         )
@@ -981,7 +1094,7 @@ with tab3:
 
         st.markdown("**Rep (close):**")
         st.success(
-            "Perfect — let’s get that taken care of. I have Thursday or Friday available. Which works better?"
+            "Perfect — let's get that taken care of. I have Thursday or Friday available. Which works better?"
         )
 
     # -----------------------------
@@ -1000,26 +1113,26 @@ with tab3:
         st.markdown("**Rep:**")
         st.success(
             "What we do is start with the deep clean to get everything reset, "
-            "then do a few maintenance visits so it doesn’t go right back."
+            "then do a few maintenance visits so it doesn't go right back."
         )
 
-        st.markdown("**Customer:** I just don’t want to be locked into something.")
+        st.markdown("**Customer:** I just don't want to be locked into something.")
 
         st.markdown("**Rep:**")
         st.success(
-            "Completely fair — that’s really just to stabilize the pool after we clean it."
+            "Completely fair — that's really just to stabilize the pool after we clean it."
         )
 
         st.markdown("**Rep (pricing):**")
         st.success(
-            f"To get it cleaned up, it’s {deep} for the first visit.\n\n"
+            f"To get it cleaned up, it's {deep} for the first visit.\n\n"
             f"After that, most customers are around {monthly} per month for weekly service — "
             f"billed at {visit} per visit."
         )
 
         st.markdown("**Rep (close):**")
         st.success(
-            "Let’s get that taken care of — I have Thursday or Friday available. Which works better?"
+            "Let's get that taken care of — I have Thursday or Friday available. Which works better?"
         )
 
     # -----------------------------
@@ -1028,7 +1141,7 @@ with tab3:
     elif scenario == "Selling Home":
         st.markdown("### 🏠 Selling Home")
 
-        st.markdown("**Customer:** I’m selling the house, so I just need the pool cleaned up.")
+        st.markdown("**Customer:** I'm selling the house, so I just need the pool cleaned up.")
 
         st.markdown("**Rep:**")
         st.success(
@@ -1037,11 +1150,11 @@ with tab3:
 
         st.markdown("**Rep:**")
         st.success(
-            "What we’ll do is get it cleaned up first, then keep it show-ready so you don’t have to worry "
+            "What we'll do is get it cleaned up first, then keep it show-ready so you don't have to worry "
             "about it slipping backward while the home is on the market."
         )
 
-        st.markdown("**Customer:** I really don’t need long-term service.")
+        st.markdown("**Customer:** I really don't need long-term service.")
 
         st.markdown("**Rep:**")
         st.success(
@@ -1050,14 +1163,14 @@ with tab3:
 
         st.markdown("**Rep (pricing):**")
         st.success(
-            f"To get it cleaned up, it’s {deep} for the first visit.\n\n"
+            f"To get it cleaned up, it's {deep} for the first visit.\n\n"
             f"After that, most customers are around {monthly} per month for weekly service — "
             f"billed at {visit} per visit."
         )
 
         st.markdown("**Rep (close):**")
         st.success(
-            "Let’s get that taken care of so the pool is one less thing on your plate — "
+            "Let's get that taken care of so the pool is one less thing on your plate — "
             "I have Thursday or Friday available. Which works better?"
         )
 
@@ -1067,7 +1180,7 @@ with tab3:
         st.markdown("""
 - Use these as **confidence builders**, not word-for-word scripts every time.
 - Keep the call moving.
-- Don’t introduce objections unless the customer raises them.
+- Don't introduce objections unless the customer raises them.
 - Answer briefly, then guide back to the close.
         """)
 
