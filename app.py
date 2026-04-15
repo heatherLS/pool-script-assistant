@@ -769,6 +769,7 @@ with tab2:
         ["Who Is Coming?", "I've Been Ghosted Before", "Trust / Wants to Try Us First"],
         ["I Don't Want Ongoing Service", "Why Do I Need Weekly?", "Can I Skip or Pause?", "Biweekly / Every Other Week"],
         ["Does That Include Chemicals?", "New Pool Owner / Needs Guidance", "Assumptive Close"],
+        ["Payment Link Looks Like Spam"],
     ]
 
     for row in button_rows:
@@ -969,6 +970,34 @@ with tab2:
         st.info(
             "Never shut the door on a cost concern — reframe the deep clean as a one-time reset, not an ongoing expense. "
             "The pivot is always: 'that price doesn't repeat — it drops to the weekly rate after.'"
+        )
+
+    elif selected == "Payment Link Looks Like Spam":
+        st.subheader("🎯 Step 1 — Normalize It (Stay on SMS First)")
+        st.success(
+            "That's just your iPhone filtering unknown numbers — it does that with links sometimes. "
+            "If you tap 'Not Spam' or open it in Safari, it should come right up."
+        )
+
+        st.subheader("🎯 Step 2 — Add Email as Backup (Without Making It a Detour)")
+        st.success(
+            "And just so you know, I also sent the same secure link to your email — "
+            "so whichever is easier for you, you're covered."
+        )
+
+        st.subheader("🎯 Step 3 — If They're Still Hesitant")
+        st.success(
+            "Some customers prefer opening it from their email since it doesn't get filtered the same way — "
+            "totally up to you, I can stay right here while you open it."
+        )
+
+        st.subheader("💡 Why This Works")
+        st.info(
+            "The spam warning is a phone filter issue, not a security issue — but the customer doesn't know that. "
+            "Your confidence is what closes this. Stay calm, normalize it immediately ('it does that sometimes'), "
+            "and offer email as a natural next option — not as a rescue. "
+            "If you get flustered or apologetic, you confirm their fear. If you're matter-of-fact, they follow your lead. "
+            "Never suggest a callback — that's a lost sale."
         )
 
     elif selected:
@@ -1288,6 +1317,13 @@ If the sales tool is not working, revert to web signup:
             "Sales tool is down — what do I do?",
             "Revert to the emergency fallback process (see red box above). Web signup + card by phone + pause recording.",
             "I'm walking you through this right now — it'll just take a moment."
+        )
+        faq_card(
+            "Customer's payment link is flagged as spam or blocked — what do I say?",
+            "Stay on the call and start with SMS first. Phone spam filters often trip on links from unknown numbers — it's common and easy to resolve. Lead with the quick fix, offer email as a natural backup, then offer to stay on the line. Do not jump to a callback.",
+            "That's just your iPhone filtering unknown numbers — it does that with links sometimes. If you tap 'Not Spam' or open it in Safari, it should come right up.\n\n"
+            "And just so you know, I also sent the same secure link to your email — so whichever is easier for you, you're covered.\n\n"
+            "(If still hesitant) Some customers prefer opening it from their email since it doesn't get filtered the same way — totally up to you, I can stay right here while you open it."
         )
 
     with st.expander("💰 Internal Pricing Reference"):
