@@ -767,7 +767,7 @@ with tab2:
         ["Green Pool / Urgent", "Price Too High", "Just Shopping Around"],
         ["Only Wants One Clean", "Selling Home", "Wants to Think About It"],
         ["Who Is Coming?", "I've Been Ghosted Before", "Trust / Wants to Try Us First"],
-        ["I Don't Want Ongoing Service", "Why Do I Need Weekly?", "Can I Skip or Pause?"],
+        ["I Don't Want Ongoing Service", "Why Do I Need Weekly?", "Can I Skip or Pause?", "Biweekly / Every Other Week"],
         ["Does That Include Chemicals?", "New Pool Owner / Needs Guidance", "Assumptive Close"],
     ]
 
@@ -908,6 +908,24 @@ with tab2:
 
         st.subheader("💡 Why This Works")
         st.info("Gives control and reduces fear of commitment.")
+
+    elif selected == "Biweekly / Every Other Week":
+        per_visit_val = st.session_state.get("per_visit", 38)
+        biweekly_monthly = per_visit_val * 2
+        st.subheader("🎯 Suggested Response")
+        st.success(
+            f"We set it up as weekly, but you're never locked in — you can skip any week you don't need us.\n\n"
+            f"So if you only want service every other week, just skip the alternating weeks and you'll only be charged "
+            f"for the visits we complete.\n\n"
+            f"Two visits a month at {visit} each comes out to about ${biweekly_monthly:,.0f} for the month."
+        )
+
+        st.subheader("💡 Why This Works")
+        st.info(
+            "Don't let biweekly be a dead end — it's not a limitation, it's a selling point. "
+            "The customer is in full control, and pay-per-visit means they only pay for what we actually complete. "
+            "Lead with the skip feature first, then let the math land naturally."
+        )
 
     elif selected == "Trust / Wants to Try Us First":
         st.subheader("🎯 Suggested Response")
